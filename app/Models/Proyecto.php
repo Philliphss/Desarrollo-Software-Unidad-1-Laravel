@@ -9,6 +9,11 @@ class Proyecto extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre', 'fecha_inicio', 'estado', 'responsable', 'monto'
+        'nombre', 'fecha_inicio', 'estado', 'responsable', 'monto', 'created_by'
     ];
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class, 'created_by');
+    }
 }
